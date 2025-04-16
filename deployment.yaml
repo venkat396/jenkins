@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: springboot-service
+  labels:
+    app: simple-kubernets  # Recommended: add labels to metadata
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: simple-kubernets  # This must match the pod template labels
+  template:
+    metadata:
+      labels:
+        app: simple-kubernets
+    spec:
+      containers:
+        - name: springboot-container
+          image: rama396/simple_kubernets:latest
+          imagePullPolicy: Always  # Ensures latest image is pulled (optional)
+          ports:
+            - containerPort: 8080
