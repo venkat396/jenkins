@@ -17,5 +17,9 @@ public class SimpleKubernetesApplication {
 	public String sample(){
 		return "Achieve the kubernetes";
 	}
+	@GetMapping("/hi")
+	public String autoDeployment(){
+		return "well come to auto deploy ment";
+	}
 
 }
